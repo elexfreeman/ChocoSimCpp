@@ -10,20 +10,23 @@ namespace ChocoSim
 
 class BaseProduct : public BaseObject
 {
+protected:
+    bool isExpired; // продукт просрочен
 public:
 
     int id;
     float basePrice; // себестоимость
     int shelfLife;  //срок годности в днях
-
-    bool isExpired; // продукт просрочен
     float massa; // масса
 
-    BaseProduct(ErrorSys *pErrorSys);
+
+    BaseProduct(ErrorSys *pErrorSys, int *pNow);
 
     void fTick();
 
     void fPrint();
+
+    bool fIsExpired();
 };
 
 

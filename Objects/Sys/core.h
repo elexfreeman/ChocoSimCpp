@@ -13,8 +13,7 @@ class Core
 private:
 
 public:
-    qint64 dateTime;
-    qint64 startAt;
+    int *now; // текущий день
     EventMaker *eventMaker;
     ErrorSys *errorSys;
 

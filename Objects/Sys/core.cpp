@@ -7,7 +7,7 @@ ChocoSim::Core::Core(ChocoSim::EventMaker *pEventMaker, ErrorSys *pErrorSys)
     eventMaker = pEventMaker;
     errorSys = pErrorSys;
     errorSys->fClear();
-    startAt = QDateTime::currentMSecsSinceEpoch();
+    *now = 0;
 }
 
 ChocoSim::Core::~Core()
@@ -27,5 +27,6 @@ void ChocoSim::Core::fTick()
     // ...
 
     // обрабатываем тики объектов
+    (*now)++;
     eventMaker->fTick();
 }

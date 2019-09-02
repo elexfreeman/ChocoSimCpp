@@ -33,9 +33,9 @@ int main(int argc, char *argv[])
     EventMaker *eventMaker = new EventMaker();
     Core *core = new Core(eventMaker, errorSys);
 
-    BaseObject *obj1 = new BaseObject(core->errorSys);
-    BaseObject *obj2 = new BaseObject(core->errorSys);
-    BaseObject *obj3 = new BaseObject(core->errorSys);
+    BaseObject *obj1 = new BaseObject(core->errorSys, core->now);
+    BaseObject *obj2 = new BaseObject(core->errorSys, core->now);
+    BaseObject *obj3 = new BaseObject(core->errorSys, core->now);
 
     obj1->sCaption = "Cat";
     obj2->sCaption = "Dog";
@@ -46,10 +46,16 @@ int main(int argc, char *argv[])
     core->fAdd(obj3);
 
     core->fTick();
+    core->fTick();
+    core->fTick();
+
+    qDebug() << *core->now;
 
 
 
+
+    //*******************
     delete core;
-    delete errorSys;
+
     return a.exec();
 }

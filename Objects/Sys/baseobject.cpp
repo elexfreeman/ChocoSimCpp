@@ -3,11 +3,12 @@
 
 
 
-ChocoSim::BaseObject::BaseObject(ErrorSys *pErrorSys)
+ChocoSim::BaseObject::BaseObject(ErrorSys *pErrorSys, int *pNow)
 {
     errorSys = pErrorSys;
+    now = pNow;
     bIsDeleted = false;
-    createAt =  QDateTime::currentMSecsSinceEpoch(); // дата создания
+    createAt =  *pNow; // дата создания
 }
 
 void ChocoSim::BaseObject::setDeleted()
@@ -22,7 +23,8 @@ bool ChocoSim::BaseObject::fIsDeleted()
 
 void ChocoSim::BaseObject::fTick()
 {
-    qDebug() << "HI! This is: " << sCaption;
+
+    qDebug() << *now << ": HI! This is: " << sCaption;
 }
 
 void ChocoSim::BaseObject::fPrint()

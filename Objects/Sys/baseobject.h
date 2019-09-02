@@ -20,9 +20,15 @@ public:
 
     QString sCaption; // название
     ErrorSys *errorSys; // ошибки выполнения
-    qint64 createAt; // дата создания
+    int createAt; // день создания
+    int *now; // текущий день
 
-    BaseObject(ErrorSys *pErrorSys);
+    /**
+     * @brief BaseObject - базовый объект системы
+     * @param pErrorSys - ошибки
+     * @param pNow - ссылка на счетчик дней
+     */
+    BaseObject(ErrorSys *pErrorSys, int *pNow);
 
     /**
      * @brief setDeleted - удалить из системы
